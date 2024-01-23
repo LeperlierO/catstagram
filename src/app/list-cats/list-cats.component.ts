@@ -13,9 +13,19 @@ export class ListCatsComponent {
   constructor(private catService: CatService){}
 
   ngOnInit(){
+    this.loadCats();
+  }
+
+  loadCats(){
     this.catService.getCats().subscribe(cats => {
       this.cats = cats;
     })
+  }
+
+  deleteCat(id: number){
+    this.catService.deleteCat(id).subscribe(res => {
+      this.loadCats();
+    });
   }
 
 }
