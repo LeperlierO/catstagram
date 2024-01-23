@@ -8,6 +8,7 @@
                   <h5 class="card-title">Un chat {{cat.id}}</h5>
                   <p class="card-text">Description.</p>
                   <a routerLink="/cats/{{cat.id}}" class="btn btn-primary">Details</a>
+                  <button (click)="editCat(cat.id)" class="btn btn-warning">Edit</button>
                   <button (click)="deleteCat(cat.id)" class="btn btn-danger">Delete</button>
                 </div>
             </div>

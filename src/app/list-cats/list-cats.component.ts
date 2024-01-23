@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CatService } from '../services/cat.service';
 import { Cat } from '../models/Cat';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-cats',
@@ -10,7 +11,7 @@ import { Cat } from '../models/Cat';
 export class ListCatsComponent {
 
   cats: Array<Cat> = []
-  constructor(private catService: CatService){}
+  constructor(private catService: CatService, private router: Router){}
 
   ngOnInit(){
     this.loadCats();
@@ -26,6 +27,10 @@ export class ListCatsComponent {
     this.catService.deleteCat(id).subscribe(res => {
       this.loadCats();
     });
+  }
+
+  editCat(id: number){
+    this.router.navigate(['cats', id, 'edit']);
   }
 
 }
