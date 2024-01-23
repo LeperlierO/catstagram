@@ -21,4 +21,8 @@ export class CatService {
     return this.http.get<Array<Cat>>(this.catPath);
   }
 
+  getCat(id: number): Observable<Cat>{
+    return this.http.get<Cat>(this.catPath + '/' + id);
+  }
+
 }
