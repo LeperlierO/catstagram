@@ -16,6 +16,8 @@ import { ListCatsComponent } from './list-cats/list-cats.component';
 import { DetailsCatComponent } from './details-cat/details-cat.component';
 import { EditCatComponent } from './edit-cat/edit-cat.component';
 import { ErrorInterceptorService } from './services/error-interceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ErrorInterceptorService } from './services/error-interceptor.service';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     AuthService, 

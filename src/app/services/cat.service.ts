@@ -13,8 +13,8 @@ export class CatService {
   private catPath = environment.apiUrl + 'cats';
   constructor(private http: HttpClient, private authService: AuthService) { }
 
-  create(data: any): Observable<Cat>{
-    return this.http.post<Cat>(this.catPath, data);
+  create(data: any): Observable<Number>{
+    return this.http.post<Number>(this.catPath, data);
   }
 
   getCats():Observable<Array<Cat>>{
