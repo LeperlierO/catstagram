@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent {
   
   loginForm : FormGroup;
 
-  constructor(private fb: FormBuilder, private authService: AuthService){
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router){
     this.loginForm = this.fb.group({
       'username' : ['', [Validators.required]],
       'password' : ['', [Validators.required]]
@@ -25,6 +26,7 @@ export class LoginComponent {
   login(){
     this.authService.login(this.loginForm.value).subscribe(data => {
       this.authService.saveToken(data);
+      this.router.navigate(['cats']);
     });
   }
 
